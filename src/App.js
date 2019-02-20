@@ -4,16 +4,20 @@ import {Provider} from 'mobx-react';
 import DevTools from "mobx-react-devtools";
 
 import NavBar from './components/NavBar';
+import NotFound from './components/NotFound';
+
 import DetailsPage from './pages/DetailsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import SearchPage from './pages/SearchPage';
-import NotFound from './components/NotFound';
+
+import SearchPageStore from './stores/SearchPageStore';
+
 
 
 class App extends Component {
   render() {
     return (
-        <Provider>
+        <Provider SearchPageStore={SearchPageStore}>
           <HashRouter>
             <div>
               <DevTools/>
