@@ -28,6 +28,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "customize-cra": "^0.2.11",
     "mobx-react-devtools": "^6.0.3",
     "react-app-rewired": "^2.1.0"
