@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {HashRouter, Route, Switch} from "react-router-dom";
 import {Provider} from 'mobx-react';
+import DevTools from "mobx-react-devtools";
 
 import NavBar from './components/NavBar';
 import DetailsPage from './pages/DetailsPage';
@@ -15,6 +16,7 @@ class App extends Component {
         <Provider>
           <HashRouter>
             <div>
+              <DevTools/>
               <NavBar/>
               <Switch>
                 <Route exact path='/' component={SearchPage}/>
