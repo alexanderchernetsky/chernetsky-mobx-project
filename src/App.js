@@ -12,12 +12,13 @@ import SearchPage from './pages/SearchPage';
 
 import SearchPageStore from './stores/SearchPageStore';
 
+const searchPageStore = new SearchPageStore();
 
 
 class App extends Component {
   render() {
     return (
-        <Provider SearchPageStore={SearchPageStore}>
+        <Provider searchPageStore={searchPageStore}>
           <HashRouter>
             <div>
               <DevTools/>
