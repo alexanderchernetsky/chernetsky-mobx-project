@@ -11,14 +11,16 @@ import FavoritesPage from './pages/FavoritesPage';
 import SearchPage from './pages/SearchPage';
 
 import SearchPageStore from './stores/SearchPageStore';
+import DetailsPageStore from './stores/DetailsPageStore';
 
 const searchPageStore = new SearchPageStore();
+const detailsPageStore = new DetailsPageStore();
 
 
 class App extends Component {
   render() {
     return (
-        <Provider searchPageStore={searchPageStore}>
+        <Provider searchPageStore={searchPageStore} detailsPageStore={detailsPageStore}>
           <HashRouter>
             <div>
               <DevTools/>

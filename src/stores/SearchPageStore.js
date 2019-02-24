@@ -5,7 +5,6 @@ const api_key='ec83b25765d95deefa90ae1330f76748';
 class SearchPageStore{
   @observable search = '';
   @observable currentPage = 1;
-  @observable totalPages = 0;
   @observable isLoading = false;
   @observable recipes = [];
 
@@ -15,7 +14,6 @@ class SearchPageStore{
 
   @action loadImages = () => {
     this.isLoading = true;
-
     fetch(`https://www.food2fork.com/api/search?key=${api_key}&q=${this.search}&page=${this.currentPage}`)
         .then(res=>res.json())
         .then(res=> {
@@ -23,8 +21,6 @@ class SearchPageStore{
           this.recipes = res.recipes;
           console.log(res.recipes);
         });
-
-
   }
 
 
