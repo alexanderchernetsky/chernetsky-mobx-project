@@ -12,7 +12,8 @@ class SearchPage extends Component{
     return (
         <div className="container">
           <SearchBar searchPageStore={this.props.searchPageStore}/>
-          {this.props.searchPageStore.recipes.length && <Recipes recipes={this.props.searchPageStore.recipes}/> || <NoResults/>}
+          {this.props.searchPageStore.recipes.length &&
+          <Recipes recipes={this.props.searchPageStore.recipes} switchLike={this.props.searchPageStore.switchLike}/> || <NoResults/>}
         </div>
     )
   }
