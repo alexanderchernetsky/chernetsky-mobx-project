@@ -18,10 +18,11 @@ const SearchBar = observer(({searchPageStore}) => (
             type="button"
         >
           {searchPageStore.isLoading ? (
-              <i className="fa fa-circle-o-notch fa-spin fa-fw" />
+              <div><i className="fas fa-spinner fa-spin"/></div>
           ) : (
-              <i className="fa fa-search" aria-hidden="true" />
+              <span><i className="fa fa-search" aria-hidden="true" /></span>
           )}
+          {/*use span and div as wrappers to make icons switching work*/}
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import {observable, action, computed} from "mobx";
+import {observable, action} from "mobx";
 
 const api_key='ec83b25765d95deefa90ae1330f76748';
 
@@ -15,6 +15,9 @@ class SearchPageStore{
   @action loadImages = () => {
     this.isLoading = true;
     const data = JSON.parse(localStorage.getItem(`/search/${this.search}/${this.currentPage}`));
+    if(data) {
+      this.isLoading = false
+    }
     data ? this.recipes = data :
     fetch(`https://www.food2fork.com/api/search?key=${api_key}&q=${this.search}&page=${this.currentPage}`)
         .then(res=>res.json())
