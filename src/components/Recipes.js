@@ -1,10 +1,10 @@
 import React from 'react';
-import {observer, inject} from 'mobx-react';
+import {observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
 
 
-const Recipes = inject('favoritesPageStore')(observer(({recipes, switchLike, favoritesPageStore}) => (
+const Recipes = observer(({recipes, switchLike, removeFromFavorite, makeFavorite}) => (
     <div className="d-flex flex-row flex-wrap">
       {recipes.map(recipe => (
           <div className="card my-3 mx-1 text-center"  key={recipe.recipe_id}>
@@ -17,10 +17,10 @@ const Recipes = inject('favoritesPageStore')(observer(({recipes, switchLike, fav
                 <div onClick={recipe.isFavorite ?
                     ()=>{
                         switchLike(recipe.recipe_id);
-                        favoritesPageStore.removeFromFavorite(recipe) } :
+                        removeFromFavorite(recipe) } :
                     ()=>{
                         switchLike(recipe.recipe_id);
-                        favoritesPageStore.makeFavorite(recipe)
+                        makeFavorite(recipe)
                     }}>
                     {recipe.isFavorite ?
                         <span><i className="fa fa-heart fa-3x text-danger"></i></span> :
@@ -31,6 +31,6 @@ const Recipes = inject('favoritesPageStore')(observer(({recipes, switchLike, fav
           </div>
       ))}
     </div>
-)));
+));
 
 export default Recipes;

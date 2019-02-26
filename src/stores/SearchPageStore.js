@@ -24,16 +24,17 @@ class SearchPageStore{
         .then(res=> {
           this.isLoading = false;
           if (res.error) {
-            alert(`Error: ${res.error}`)
+            alert(`Error: ${res.error}`);
           } else {
             this.recipes = res.recipes.map(obj => ({...obj, isFavorite: false}));
+            console.log(this.recipes);
+            localStorage.setItem(`/search/${this.search}/${this.currentPage}`, JSON.stringify(this.recipes));
           }
-          console.log(this.recipes);
-          localStorage.setItem(`/search/${this.search}/${this.currentPage}`, JSON.stringify(this.recipes));
         });
   };
 
   @action switchLike = (recipeId) => {
+    console.log(this.recipes);
     const targetRecipe = this.recipes.find(recipe => recipe.recipe_id === recipeId);
     targetRecipe.isFavorite ? targetRecipe.isFavorite = false : targetRecipe.isFavorite = true
   }

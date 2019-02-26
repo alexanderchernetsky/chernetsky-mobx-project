@@ -1,8 +1,7 @@
 import {observable, action} from 'mobx';
 
-class FavoritesPageStore{
+class FavoritesPageStore {
   @observable likedRecipes = [];
-
 
   @action makeFavorite = (recipe) => {
     this.likedRecipes.push(recipe);
@@ -19,7 +18,7 @@ class FavoritesPageStore{
   };
 
   @action getLikedRecipesFromLocalStorage = () => {
-    this.likedRecipes = localStorage.getItem(`/recipeApp/likedRecipes`);
+    this.likedRecipes = JSON.parse(localStorage.getItem(`/recipeApp/likedRecipes`));
   }
 
 }
