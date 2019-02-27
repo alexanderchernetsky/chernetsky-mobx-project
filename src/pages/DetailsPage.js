@@ -25,17 +25,17 @@ class DetailsPage extends Component{
           }
           {
             detailsPageStore.recipe &&
-            <div className="jumbotron mb-0 text-center">
-              <img src={detailsPageStore.recipe.image_url} alt="dish" className="w-75 rounded mx-auto d-block"/>
-              <h1>{detailsPageStore.recipe.title}</h1>
+            <div className="jumbotron mb-2 py-2 text-center">
+              <h1 className="text-muted details__header">{detailsPageStore.recipe.title}</h1>
               <p className="lead ">Publisher: {detailsPageStore.recipe.publisher}</p>
+              <img src={detailsPageStore.recipe.image_url} alt="dish" className="rounded mx-auto d-block details__image"/>
               <hr className="my-4"/>
               <ul className="list-group">
                 {detailsPageStore.recipe.ingredients.map((ingredient,index) => (
                     <li className="list-group-item " key={index}>{ingredient}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary btn-lg mt-3" onClick={this.props.history.goBack}>
+              <button className="btn btn-primary mt-3" onClick={this.props.history.goBack}>
                 Return Back
               </button>
             </div>
@@ -44,4 +44,5 @@ class DetailsPage extends Component{
     )
   }
 }
+
 export default DetailsPage;

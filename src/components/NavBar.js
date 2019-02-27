@@ -7,7 +7,7 @@ const NavBar = observer(() => (
     <nav>
       <ul className="nav nav-tabs">
         <a className="navbar-brand" href="#">
-          <img src={logo} alt="RecipeAppLogo" className="navbar__logo pl-2"/>
+          <img src={logo} alt="RecipeAppLogo" className="navbar__logo pl-3"/>
         </a>
         <li className="nav-item">
           <Link className="nav-link" to='/search'>Search</Link>
