@@ -15,7 +15,7 @@ class FavoritesPage extends Component {
 
   render() {
     return (
-        <div>
+        <div className="container">
           {this.props.favoritesPageStore.likedRecipes.length &&
           <Recipes recipes={this.props.favoritesPageStore.likedRecipes}
                    likedRecipes={this.props.favoritesPageStore.likedRecipes}

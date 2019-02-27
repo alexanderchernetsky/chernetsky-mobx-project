@@ -1,11 +1,14 @@
 import React from 'react';
 import  {Link} from 'react-router-dom';
 import {observer} from 'mobx-react';
+import logo from '../img/logo.png';
 
 const NavBar = observer(() => (
     <nav>
       <ul className="nav nav-tabs">
-        <a className="navbar-brand" href="#">RecipeApp</a>
+        <a className="navbar-brand" href="#">
+          <img src={logo} alt="RecipeAppLogo" className="navbar__logo pl-2"/>
+        </a>
         <li className="nav-item">
           <Link className="nav-link" to='/search'>Search</Link>
         </li>

@@ -1,3 +1,11 @@
 .card {
   width: 350px;
 }
+
+.navbar__logo {
+  width: 100px;
+}
+
+body {
+  min-width: 300px;
+}
