@@ -26,18 +26,18 @@ class SearchPageStore{
           if (res.error) {
             alert(`Error: ${res.error}`);
           } else {
-            this.recipes = res.recipes.map(obj => ({...obj, isFavorite: false}));
+            this.recipes = res.recipes;
             console.log(this.recipes);
             localStorage.setItem(`/search/${this.search}/${this.currentPage}`, JSON.stringify(this.recipes));
           }
         });
   };
 
-  @action switchLike = (recipeId) => {
+  /*@action switchLike = (recipeId) => {
     console.log(this.recipes);
     const targetRecipe = this.recipes.find(recipe => recipe.recipe_id === recipeId);
     targetRecipe.isFavorite ? targetRecipe.isFavorite = false : targetRecipe.isFavorite = true
-  }
+  }*/
 
 }
 

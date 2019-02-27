@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
-import {Link} from 'react-router-dom';
 
 @inject('detailsPageStore')
 @observer
@@ -12,10 +11,18 @@ class DetailsPage extends Component{
     this.props.detailsPageStore.getRecipeDetails();
   }
 
+  componentWillUnmount() {
+    this.props.detailsPageStore.deleteRecipeFromStore();
+  }
+
   render() {
     const {detailsPageStore} = this.props;
     return (
         <div className="container mt-2">
+          {
+            detailsPageStore.isLoading &&
+            <div className="mt-4 text-center"><i className="fas fa-circle-notch fa-spin fa-3x"></i></div>
+          }
           {
             detailsPageStore.recipe &&
             <div className="jumbotron mb-0 text-center">
@@ -28,8 +35,8 @@ class DetailsPage extends Component{
                     <li className="list-group-item " key={index}>{ingredient}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary btn-lg mt-3">
-                <Link to='/' className="text-light text-decoration-none">Return Back</Link>
+              <button className="btn btn-primary btn-lg mt-3" onClick={this.props.history.goBack}>
+                Return Back
               </button>
             </div>
           }

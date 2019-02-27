@@ -18,7 +18,7 @@ class FavoritesPage extends Component {
         <div>
           {this.props.favoritesPageStore.likedRecipes.length &&
           <Recipes recipes={this.props.favoritesPageStore.likedRecipes}
-                   switchLike={this.props.searchPageStore.switchLike}
+                   likedRecipes={this.props.favoritesPageStore.likedRecipes}
                    makeFavorite={this.props.favoritesPageStore.makeFavorite}
                    removeFromFavorite={this.props.favoritesPageStore.removeFromFavorite}
           /> ||

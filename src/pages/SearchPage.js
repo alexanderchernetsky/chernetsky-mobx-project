@@ -15,7 +15,7 @@ class SearchPage extends Component{
           <SearchBar searchPageStore={this.props.searchPageStore}/>
           {this.props.searchPageStore.recipes.length &&
           <Recipes recipes={this.props.searchPageStore.recipes}
-                   switchLike={this.props.searchPageStore.switchLike}
+                   likedRecipes={this.props.favoritesPageStore.likedRecipes}
                    makeFavorite={this.props.favoritesPageStore.makeFavorite}
                    removeFromFavorite={this.props.favoritesPageStore.removeFromFavorite}
           /> ||

@@ -10,6 +10,7 @@ class FavoritesPageStore {
   };
 
   @action removeFromFavorite = (recipe) => {
+    console.log(this.likedRecipes);
     const recipeIndex = this.likedRecipes.findIndex(elem => elem.recipe_id === recipe.recipe_id);
     console.log(recipeIndex);
     this.likedRecipes.splice(recipeIndex, 1);
@@ -19,6 +20,7 @@ class FavoritesPageStore {
 
   @action getLikedRecipesFromLocalStorage = () => {
     this.likedRecipes = JSON.parse(localStorage.getItem(`/recipeApp/likedRecipes`));
+    console.log(this.likedRecipes);
   }
 
 }
