@@ -1,0 +1,28 @@
+//importing bootstrap styles
+@import '../node_modules/bootstrap/scss/bootstrap'
+
+//our custom styles
+body
+  min-width: 300px
+
+.card
+  width: 350px
+
+.navbar__logo
+  width: 105px
+
+.details__image
+  @include media-breakpoint-down(md)
+    width: 75%
+
+.details__header
+  @include media-breakpoint-down(xs)
+    font-size: 1.75rem
+
+.page__container
+  @include media-breakpoint-up(md)
+    max-width: 750px
+  @include media-breakpoint-up(lg)
+    max-width: 960px
+  @include media-breakpoint-up(xl)
+    max-width: 1140px
