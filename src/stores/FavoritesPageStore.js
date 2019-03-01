@@ -15,7 +15,8 @@ class FavoritesPageStore {
   };
 
   @action getLikedRecipesFromLocalStorage = () => {
-    this.likedRecipes = JSON.parse(localStorage.getItem(`/recipeApp/likedRecipes`));
+    const likedRecipesFromStorage = JSON.parse(localStorage.getItem(`/recipeApp/likedRecipes`));
+    likedRecipesFromStorage ? this.likedRecipes = likedRecipesFromStorage : this.likedRecipes = [];
   }
 }
 

@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import PropTypes from 'prop-types';
+//import font awesome icons
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 @inject('detailsPageStore')
 @observer
@@ -30,7 +33,7 @@ class DetailsPage extends Component{
     return (
         <div className="container mt-2">
           {detailsPageStore.isLoading &&
-            <div className="mt-4 text-center"><i className="fas fa-circle-notch fa-spin fa-3x"></i></div>}
+            <div className="mt-4 text-center"><FontAwesomeIcon icon={faCircleNotch} size="3x" spin/></div>}
           {detailsPageStore.recipe &&
             <div className="jumbotron mb-2 py-2 text-center">
               <h1 className="text-muted details__header">{detailsPageStore.recipe.title}</h1>
