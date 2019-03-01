@@ -1,5 +1,6 @@
 import React from 'react';
 import empty from '../img/empty.png';
+import PropTypes from 'prop-types';
 
 const NoResults = ({title, description}) => (
   <div className="d-flex flex-column mt-4">
@@ -8,5 +9,10 @@ const NoResults = ({title, description}) => (
     <p className="text-center text-muted">{description}</p>
   </div>
 );
+
+NoResults.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
 
 export default NoResults;
