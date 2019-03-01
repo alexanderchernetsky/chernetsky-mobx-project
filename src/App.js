@@ -19,6 +19,8 @@ const searchPageStore = new SearchPageStore();
 const detailsPageStore = new DetailsPageStore();
 const favoritesPageStore = new FavoritesPageStore();
 
+
+
 class App extends Component {
   render() {
     return (

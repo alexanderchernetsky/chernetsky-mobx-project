@@ -1,6 +1,9 @@
 import React from 'react';
 import {observer} from "mobx-react";
 import PropTypes from 'prop-types';
+//import font awesome icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchBar = observer(({searchPageStore}) => (
     <div className="input-group my-3 mx-4 w-auto">
@@ -19,11 +22,10 @@ const SearchBar = observer(({searchPageStore}) => (
             type="button"
         >
           {searchPageStore.isLoading ? (
-              <div><i className="fas fa-spinner fa-spin"/></div>
+              <FontAwesomeIcon icon={faSpinner} spin/>
           ) : (
-              <span><i className="fa fa-search" aria-hidden="true" /></span>
+              <FontAwesomeIcon icon={faSearch}/>
           )}
-          {/*use span and div as wrappers to make icons switching work*/}
         </button>
       </div>
     </div>

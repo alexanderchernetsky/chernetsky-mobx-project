@@ -3,6 +3,10 @@ import {observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {findObjectWithTheSameProperty} from '../helpers';
 import PropTypes from 'prop-types';
+//import font awesome icons
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHeart as fasFaHeart} from '@fortawesome/free-solid-svg-icons';
+import {faHeart as farFaHeart} from '@fortawesome/free-regular-svg-icons';
 
 const Recipes = observer(({recipes, removeFromFavorite, makeFavorite, likedRecipes}) => (
     <div className="d-flex flex-row flex-wrap justify-content-center">
@@ -19,8 +23,8 @@ const Recipes = observer(({recipes, removeFromFavorite, makeFavorite, likedRecip
                         ()=>{makeFavorite(recipe)}}
                     >
                         {findObjectWithTheSameProperty(likedRecipes, recipe.recipe_id) ?
-                            <span><i className="fa fa-heart fa-3x text-danger"></i></span> :
-                            <div><i className="far fa-heart fa-3x"></i></div> }
+                            <FontAwesomeIcon icon={fasFaHeart} size="3x" color="#FA5252"/> :
+                            <FontAwesomeIcon icon={farFaHeart} size="3x"/> }
                         {/*use span and div as wrappers to make icons switching work*/}
                     </div>
                 </div>
