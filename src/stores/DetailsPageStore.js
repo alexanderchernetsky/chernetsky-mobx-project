@@ -16,14 +16,11 @@ class DetailsPageStore {
       fetch(`https://www.food2fork.com/api/get?key=${api_key}&rId=${id}`)
           .then(res => res.json())
           .then(res => {
-            if (res.error) {
-              alert(`Error: ${res.error}`);
-            } else {
-              this.recipe = res.recipe;
-              localStorage.setItem(`/details/${id}`, JSON.stringify(this.recipe));
-              this.isLoading = false;
-            }
+            this.recipe = res.recipe;
+            localStorage.setItem(`/details/${id}`, JSON.stringify(this.recipe));
+            this.isLoading = false;
           })
+          .catch(error => alert(`Error: ${error.error}`))
     }
   };
 

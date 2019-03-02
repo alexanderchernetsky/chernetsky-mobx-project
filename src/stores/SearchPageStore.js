@@ -16,20 +16,17 @@ class SearchPageStore {
     this.isLoading = true;
     const data = JSON.parse(localStorage.getItem(`/search/${this.search}/${this.currentPage}`));
     if(data) {
-      this.isLoading = false;
       this.recipes = data;
+      this.isLoading = false;
     } else {
       fetch(`https://www.food2fork.com/api/search?key=${api_key}&q=${this.search}&page=${this.currentPage}`)
           .then(res=>res.json())
           .then(res=> {
+            this.recipes = res.recipes;
+            localStorage.setItem(`/search/${this.search}/${this.currentPage}`, JSON.stringify(this.recipes));
             this.isLoading = false;
-            if (res.error) {
-              alert(`Error: ${res.error}`);
-            } else {
-              this.recipes = res.recipes;
-              localStorage.setItem(`/search/${this.search}/${this.currentPage}`, JSON.stringify(this.recipes));
-            }
-          });
+          })
+          .catch(error => alert(`Error: ${error.error}`))
     }
   };
 }
